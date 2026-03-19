@@ -1,3 +1,26 @@
-/* You can add global styles to this file, and also import other style files */
-
 @import 'tailwindcss';
+
+.roboto {
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+html {
+    font-size: 60%;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 80%;
+    }
+}
+
+@media (min-width: 1024px) {
+    html {
+        font-size: 100%;
+    }
+}

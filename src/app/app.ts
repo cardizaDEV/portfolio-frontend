@@ -1,12 +1,11 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, OnInit, signal } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { TechnologyCarouselComponent } from './components/technologies-carousel/technology-carousel.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [HttpClientModule, TechnologyCarouselComponent],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
 })
-export class App {
-  protected readonly title = signal('portfolio-frontend');
-}
+export class App {}

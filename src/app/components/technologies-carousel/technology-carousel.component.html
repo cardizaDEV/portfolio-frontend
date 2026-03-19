@@ -1,0 +1,25 @@
+<div class="relative w-full overflow-x-hidden py-4">
+    <div #track class="flex carousel-track">
+        <ng-container *ngFor="let tech of technologies">
+            <ng-container *ngTemplateOutlet="techCard; context: { $implicit: tech }"></ng-container>
+        </ng-container>
+        <ng-container *ngFor="let tech of technologies">
+            <ng-container *ngTemplateOutlet="techCard; context: { $implicit: tech }"></ng-container>
+        </ng-container>
+    </div>
+</div>
+
+<ng-template #techCard let-tech>
+    <div (click)="openUrl(tech.url)"
+        class="relative group flex flex-col items-center justify-start h-32 min-w-32 rounded-lg p-4 hover:scale-105 transition-transform cursor-pointer">
+        <div class="relative">
+            <svg class="w-14 h-14 mb-2">
+                <use [attr.href]="'#' + tech.name"></use>
+            </svg>
+            <span
+                class="absolute top-full mt-1 left-1/2 -translate-x-1/2 px-2 py-1 text-xs font-medium text-white bg-gray-800 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-[9999]">
+                {{ tech.name }}
+            </span>
+        </div>
+    </div>
+</ng-template>
