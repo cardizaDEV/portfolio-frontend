@@ -148,14 +148,17 @@ export class TimelineComponent implements OnInit {
 
   private updatePillPosition(event: MouseEvent): void {
     const rect = (event.target as HTMLElement).getBoundingClientRect();
+    const container = document.getElementById('timeline-container')!.getBoundingClientRect();
+
     const pillWidth = 320;
     const margin = 8;
     const center = rect.left + rect.width / 2;
+
     this.pillX = Math.min(
-      Math.max(margin, center - pillWidth / 2),
-      window.innerWidth - pillWidth - margin,
+      Math.max(margin, center - pillWidth / 2 - container.left),
+      container.width - pillWidth - margin,
     );
-    this.pillY = rect.top - 8;
+    this.pillY = rect.top - container.top - 10;
   }
 
   getBarLeft(exp: Experience): number {

@@ -28,10 +28,23 @@ export class NavComponent {
     this.translate.use(lang);
   }
 
+  downloadCv(): void {
+    const link = document.createElement('a');
+    link.href = `${window.location.origin}/${this.currentLang === 'es' ? 'cv-es.pdf' : 'cv-en.pdf'}`;
+    link.download = `cv-adrian-carneiro-${this.currentLang}.pdf`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+
   scrollTo(sectionId: string): void {
     this.menuOpen = false;
     const el = document.getElementById(sectionId);
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (el) {
+      const navHeight = 64;
+      const offset = el.getBoundingClientRect().top + window.scrollY - navHeight - 12;
+      window.scrollTo({ top: offset, behavior: 'smooth' });
+    }
   }
 
   toggleMenu(): void {
