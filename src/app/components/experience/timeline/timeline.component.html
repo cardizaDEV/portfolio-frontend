@@ -25,14 +25,15 @@
                             </div>
 
                             <div class="relative flex gap-0.5 justify-center z-10">
-                                <div *ngFor="let exp of point.experiences"
-                                    class="timeline-dot w-3 h-3 rounded-full border-2 border-surface transition-transform"
-                                    [class.scale-150]="hoverVisualId === exp.id || pinnedExp?.id === exp.id"
+                                <div *ngFor="let exp of point.experiences" class="p-2 -m-2 cursor-cell"
                                     [style.cursor]="pinnedExp?.id === exp.id ? 'default' : 'cell'"
-                                    [style.background-color]="exp.category.colorBg"
-                                    [style.border-color]="exp.category.colorBorder"
                                     (mouseenter)="onDotEnter($event, exp)" (mouseleave)="onDotLeave()"
                                     (click)="onDotClick($event, exp)">
+                                    <div class="timeline-dot w-3 h-3 rounded-full border-2 border-surface transition-transform"
+                                        [class.scale-150]="hoverVisualId === exp.id || pinnedExp?.id === exp.id"
+                                        [style.background-color]="exp.category.colorBg"
+                                        [style.border-color]="exp.category.colorBorder">
+                                    </div>
                                 </div>
                             </div>
 
@@ -42,12 +43,15 @@
 
                 <div *ngFor="let lane of lanes" class="relative h-14 flex items-center mt-2">
                     <ng-container *ngFor="let exp of byCategory(lane.name)">
-                        <div class="absolute h-1.5 rounded-full opacity-60 hover:opacity-100 transition-opacity"
-                            [style.left]="getBarLeft(exp) + '%'" [style.width]="getBarWidth(exp) + '%'"
-                            [style.background-color]="lane.colorText"
+                        <div class="absolute flex items-center" [style.left]="getBarLeft(exp) + '%'"
+                            [style.width]="getBarWidth(exp) + '%'"
+                            style="height: 2rem; top: 50%; transform: translateY(-50%);"
                             [style.cursor]="pinnedExp?.id === exp.id ? 'default' : 'cell'"
                             (mouseenter)="onDotEnter($event, exp)" (mouseleave)="onDotLeave()"
                             (click)="onDotClick($event, exp)">
+                            <div class="w-full h-1.5 rounded-full opacity-60 hover:opacity-100 transition-opacity"
+                                [style.background-color]="lane.colorText">
+                            </div>
                         </div>
                     </ng-container>
                 </div>
