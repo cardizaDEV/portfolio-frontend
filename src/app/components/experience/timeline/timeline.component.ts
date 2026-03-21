@@ -40,7 +40,7 @@ export class TimelineComponent implements OnInit {
   constructor(private experienceService: ExperienceService) {}
 
   ngOnInit(): void {
-    this.experienceService.getExperiences().subscribe((data) => {
+    this.experienceService.experiences$.subscribe((data) => {
       this.experiences = data.sort(
         (a, b) => new Date(a.startDate).getTime() - new Date(b.startDate).getTime(),
       );
@@ -50,7 +50,7 @@ export class TimelineComponent implements OnInit {
       this.cacheBarPercents();
     });
   }
-
+  
   @HostListener('document:click', ['$event'])
   onDocumentClick(event: MouseEvent): void {
     const target = event.target as HTMLElement;

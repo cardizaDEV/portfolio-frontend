@@ -24,7 +24,7 @@ export class StackComponent {
   ) {}
 
   ngOnInit() {
-    this.technologyService.getTechnologies().subscribe((data) => {
+    this.technologyService.technologies$.subscribe((data) => {
       this.technologies = data;
       this.categories = this.extractCategories(data);
       this.cdr.detectChanges();
