@@ -1,0 +1,41 @@
+<section id="stack" class="mb-18 px-16 ">
+    <p
+        class="font-mono text-[14px] tracking-[0.14em] uppercase text-subtle mb-6 flex items-center gap-3 after:flex-1 after:h-px after:bg-border">
+        {{ 'STACK.LABEL' | translate }}
+    </p>
+    <div class="flex flex-col items-center justify-center md:flex-row gap-4">
+
+        <div class="flex flex-col items-center justify-center border border-border rounded-xl p-6">
+            <p class="text-base leading-7 text-muted">
+                {{ 'STACK.FRONT_FAV_STACK_LABEL' | translate }}
+            </p>
+            <p class="font-serif text-2xl leading-snug tracking-tight text-content mb-4">
+                {{ 'STACK.FRONT_FAV_STACK' | translate }}
+            </p>
+            <svg class="w-16 h-16 mb-2">
+                <use [attr.href]="'#' + 'Angular'"></use>
+            </svg>
+        </div>
+
+        <div class="flex flex-col items-center justify-center border border-border rounded-xl p-6">
+            <p class="text-base leading-7 text-muted">
+                {{ 'STACK.BACK_FAV_STACK_LABEL' | translate }}
+            </p>
+            <p class="font-serif text-2xl leading-snug tracking-tight text-content mb-4">
+                {{ 'STACK.BACK_FAV_STACK' | translate }}
+            </p>
+            <svg class="w-14 h-14 mb-2">
+                <use [attr.href]="'#' + 'Spring Boot'"></use>
+            </svg>
+        </div>
+
+    </div>
+
+    <div class="w-full mt-4">
+        <div class="grid grid-cols-4 gap-2">
+            <div *ngFor="let tech of technologies" class="border border-red-500 p-2 text-xs">
+                {{ tech.name }}
+            </div>
+        </div>
+    </div>
+</section>

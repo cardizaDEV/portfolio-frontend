@@ -1,0 +1,61 @@
+<div class="fixed inset-0 z-50 bg-surface/80 backdrop-blur-sm flex items-center justify-center p-4"
+    (click)="close.emit()">
+
+    <div class="bg-surface-2 border border-border rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto shadow-2xl"
+        (click)="$event.stopPropagation()">
+
+        <div class="flex items-start justify-between p-6 border-b border-border">
+            <div>
+                <p class="font-mono text-base uppercase tracking-widest mb-1" [style.color]="exp.category.colorText">
+                    {{ exp.category.name }}
+                </p>
+                <h2 class="font-serif text-2xl text-content leading-snug tracking-tight">{{ exp.title }}</h2>
+                <p class="font-mono text-base text-muted mt-1">{{ exp.organization.name }}</p>
+            </div>
+            <div class="flex items-center gap-3 shrink-0">
+                <span class="font-mono text-base font-medium px-3 py-1 rounded-full"
+                    [style.background-color]="exp.status.colorBg" [style.color]="exp.status.colorText"
+                    [style.border]="'0.5px solid ' + exp.status.colorBorder">
+                    {{ exp.status.name }}
+                </span>
+                <button class="text-muted hover:text-content transition-colors cursor-pointer" (click)="close.emit()">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div class="p-6 flex flex-col gap-6">
+
+            <div>
+                <p class="font-mono text-base uppercase tracking-widest text-subtle mb-2">
+                    {{ 'EXPERIENCE.PERIOD' | translate }}
+                </p>
+                <p class="font-mono text-base text-muted">
+                    {{ formatDate(exp.startDate) }} —
+                    {{ exp.endDate ? formatDate(exp.endDate) : ('EXPERIENCE.PRESENT' | translate) }}
+                </p>
+            </div>
+
+            <div *ngIf="exp.description">
+                <p class="font-mono text-base uppercase tracking-widest text-subtle mb-2">
+                    {{ 'EXPERIENCE.DESCRIPTION' | translate }}
+                </p>
+                <p class="text-base text-muted leading-7">{{ exp.description }}</p>
+            </div>
+
+            <div *ngIf="exp.technologies.length">
+                <p class="font-mono text-base uppercase tracking-widest text-subtle mb-3">
+                    {{ 'EXPERIENCE.TECHNOLOGIES' | translate }}
+                </p>
+                <div class="grid grid-cols-4 gap-2">
+                    <app-tech-pill *ngFor="let tech of exp.technologies" [tech]="tech" />
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,24 @@
+<section id="about" class="mb-18 px-16 ">
+    <p
+        class="font-mono text-[14px] tracking-[0.14em] uppercase text-subtle mb-6 flex items-center gap-3 after:flex-1 after:h-px after:bg-border">
+        {{ 'ABOUT.LABEL' | translate }}
+    </p>
+    <div class="flex flex-col md:flex-row gap-4">
+
+        <div class="flex flex-col items-center justify-center border border-border rounded-xl p-6 shrink-0 md:w-36">
+            <span class="font-mono text-5xl font-medium text-primary leading-none">{{ yearsOfExperience }}</span>
+            <span class="font-mono text-base text-muted text-center mt-2 leading-snug">{{ 'ABOUT.YEARS' | translate
+                }}</span>
+        </div>
+
+        <div class="border border-border rounded-xl p-6 flex-1">
+            <p class="font-serif text-2xl leading-snug tracking-tight text-content mb-4">
+                {{ 'ABOUT.HEADLINE' | translate }}
+            </p>
+            <p class="text-base leading-7 text-muted">
+                {{ 'ABOUT.DESC' | translate }}
+            </p>
+        </div>
+
+    </div>
+</section>

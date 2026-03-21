@@ -1,26 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500&display=swap');
 @import 'tailwindcss';
 
-.roboto {
-  font-family: "Roboto", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 600;
-  font-style: normal;
-  font-variation-settings:
-    "wdth" 100;
-}
+@theme {
+  --color-primary: #f58701;
+  --color-primary-light: #fef0dc;
+  --color-primary-mid: #e07800;
+  --color-primary-dark: #7a3e00;
+  --color-brprimaryand-border: #f9c47a;
 
-html {
-    font-size: 60%;
-}
+  --color-surface: #30302e;
+  --color-surface-2: #3a3a38;
+  --color-surface-3: #444442;
 
-@media (min-width: 768px) {
-    html {
-        font-size: 80%;
-    }
-}
+  --color-border: #4a4a48;
+  --color-border-soft: #3e3e3c;
 
-@media (min-width: 1024px) {
-    html {
-        font-size: 100%;
-    }
+  --color-content: #f0efe9;
+  --color-muted: #a8a8a0;
+  --color-subtle: #6e6e68;
+
+  --font-serif: 'DM Serif Display', serif;
+  --font-mono: 'DM Mono', monospace;
+  --font-sans: 'Outfit', sans-serif;
 }
