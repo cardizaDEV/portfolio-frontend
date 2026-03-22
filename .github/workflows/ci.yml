@@ -36,6 +36,10 @@ jobs:
         if: github.ref == 'refs/heads/main'
         run: npm run build -- --configuration production
 
+      - name: Install Vercel CLI
+        if: github.ref == 'refs/heads/main'
+        run: npm install -g vercel
+
       - name: Deploy to Vercel
         if: github.ref == 'refs/heads/main'
         run: npx vercel --prod --yes --token=${{ secrets.VERCEL_DEPLOY_TOKEN }}
