@@ -1,0 +1,77 @@
+<section id="experience" class="mb-18 px-16">
+    <p
+        class="font-mono text-[14px] tracking-[0.14em] uppercase text-subtle mb-8 flex items-center gap-3 after:flex-1 after:h-px after:bg-border">
+        {{ 'EXPERIENCE.LABEL' | translate }}
+    </p>
+
+    <div class="relative" id="timeline-container" *ngIf="experiences.length">
+
+        <div class="w-full overflow-x-auto pb-2">
+            <div class="relative min-w-160 px-6">
+
+                <div class="relative h-32">
+                    <div class="absolute bottom-4 left-0 right-0 h-px bg-border"></div>
+
+                    <ng-container *ngFor="let point of points">
+                        <div class="absolute -translate-x-1/2" [style.left]="point.percent + '%'"
+                            style="bottom: calc(1rem - 6px)">
+
+                            <div class="absolute bottom-0 left-1/2 -translate-x-1/2 flex flex-col items-center"
+                                [style.height.px]="point.lineHeight + 24">
+                                <span class="font-mono text-[12px] text-subtle whitespace-nowrap mb-1">
+                                    {{ formatDate(point.experiences[0].startDate) }}
+                                </span>
+                                <div class="w-px flex-1 bg-border-soft"></div>
+                            </div>
+
+                            <div class="relative flex gap-0.5 justify-center z-10">
+                                <div *ngFor="let exp of point.experiences" class="p-2 -m-2 cursor-cell"
+                                    [style.cursor]="pinnedExp?.id === exp.id ? 'default' : 'cell'"
+                                    (mouseenter)="onDotEnter($event, exp)" (mouseleave)="onDotLeave()"
+                                    (click)="onDotClick($event, exp)">
+                                    <div class="timeline-dot w-3 h-3 rounded-full border-2 border-surface transition-transform"
+                                        [class.scale-150]="hoverVisualId === exp.id || pinnedExp?.id === exp.id"
+                                        [style.background-color]="exp.category.colorBg"
+                                        [style.border-color]="exp.category.colorBorder">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </ng-container>
+                </div>
+
+                <div *ngFor="let lane of lanes" class="relative h-14 flex items-center mt-2">
+                    <ng-container *ngFor="let exp of byCategory(lane.name)">
+                        <div class="absolute flex items-center" [style.left]="getBarLeft(exp) + '%'"
+                            [style.width]="getBarWidth(exp) + '%'"
+                            style="height: 2rem; top: 50%; transform: translateY(-50%);"
+                            [style.cursor]="pinnedExp?.id === exp.id ? 'default' : 'cell'"
+                            (mouseenter)="onDotEnter($event, exp)" (mouseleave)="onDotLeave()"
+                            (click)="onDotClick($event, exp)">
+                            <div class="w-full h-1.5 rounded-full opacity-60 hover:opacity-100 transition-opacity"
+                                [style.background-color]="lane.colorText">
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+
+                <div class="flex flex-wrap gap-4 mt-4">
+                    <div *ngFor="let lane of lanes" class="flex items-center gap-1.5">
+                        <div class="w-2 h-2 rounded-full" [style.background-color]="lane.colorText"></div>
+                        <span class="font-mono text-[10px]" [style.color]="lane.colorText">{{ lane.name }}</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <app-experience-pill *ngIf="visibleExp" [exp]="visibleExp!" [isPinned]="pinnedExp !== null"
+            class="absolute z-50" [style.left.px]="pillX" [style.top.px]="pillY" style="transform: translateY(-100%)"
+            (openDetail)="detailExp = $event; pinnedExp = null; hoveredExp = null" />
+
+    </div>
+
+    <app-experience-detail *ngIf="detailExp" [exp]="detailExp" (close)="detailExp = null" />
+
+</section>

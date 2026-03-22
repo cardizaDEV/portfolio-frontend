@@ -1,0 +1,41 @@
+<section class="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-8 items-center md:mb-20 px-16">
+
+    <div>
+        <p class="font-mono text-base tracking-[0.14em] text-primary uppercase mb-3">
+            {{ 'HERO.EYEBROW' | translate }}
+        </p>
+
+        <h1 class="font-serif text-4xl md:text-5xl lg:text-[3.2rem] leading-[1.07] tracking-tight mb-5 text-content">
+            {{ 'HERO.TITLE_PRE' | translate }}
+            <em class="italic text-primary">{{ 'HERO.TITLE_ACCENT' | translate }}</em>
+            {{ 'HERO.TITLE_POST' | translate }}
+        </h1>
+
+        <p class="text-base leading-7 text-muted max-w-md mb-6">
+            {{ 'HERO.DESC' | translate }}
+        </p>
+
+        <div class="flex flex-wrap gap-2">
+            <button (click)="scrollToProjects()"
+                class="text-base font-medium px-4 py-2 bg-primary text-primary-dark rounded-lg hover:opacity-90 transition-opacity cursor-pointer">
+                {{ 'HERO.BTN_PROJECTS' | translate }}
+            </button>
+            <button
+                class="font-mono text-base px-4 py-2 border border-border rounded-lg text-muted hover:border-primary-border hover:text-content transition-colors cursor-pointer">
+                {{ 'HERO.BTN_SWAGGER' | translate }}
+            </button>
+        </div>
+    </div>
+
+    <div class="relative overflow-hidden
+              h-24 w-full
+              md:h-96 md:w-64
+              mask-[linear-gradient(to_right,transparent_0%,black_15%,black_85%,transparent_100%)]
+              md:mask-[linear-gradient(to_bottom,transparent_0%,black_22%,black_78%,transparent_100%)]">
+        <div class="flex md:flex-col gap-2 absolute"
+            [style.transform]="isMobile ? 'translateX(-' + offset + 'px)' : 'translateY(-' + offset + 'px)'">
+            <app-tech-pill *ngFor="let tech of technologies" [tech]="tech" />
+        </div>
+    </div>
+
+</section>

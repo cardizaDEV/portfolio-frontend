@@ -1,0 +1,63 @@
+{
+  "NAV": {
+    "ABOUT": "about",
+    "STACK": "stack",
+    "EXPERIENCE": "experience",
+    "PROJECTS": "projects",
+    "CONTACT": "contact",
+    "CV": "cv.pdf ↓"
+  },
+  "HERO": {
+    "EYEBROW": "// Fullstack Developer · Spring Boot & Angular",
+    "TITLE_PRE": "Building technology that actually",
+    "TITLE_ACCENT": "works.",
+    "TITLE_POST": "",
+    "DESC": "Fullstack developer focused on building clean, scalable systems. I care as much about a well-designed API as I do about the interface that consumes it.",
+    "BTN_PROJECTS": "View projects",
+    "BTN_SWAGGER": "Swagger UI →"
+  },
+  "ABOUT": {
+    "LABEL": "about me",
+    "HEADLINE": "Developer passionate about building useful, well-structured solutions.",
+    "DESC": "I have experience building backend applications with Spring Boot, frontend applications with Angular and mobile apps using Flutter, taking part in multiple phases of the development lifecycle. I adapt well to new environments and technologies, and I particularly value code quality, maintainability and continuous learning. I also have a strong interest in artificial intelligence and enjoy exploring how it can be applied to solve complex real-world problems. Outside of the keyboard, I love animals, video games and TV shows.",
+    "MAIN_LANG": "Java & TypeScript",
+    "FAV_FRAMEWORK": "Spring Boot & Angular",
+    "YEARS": "years of\nexperience"
+  },
+  "STACK": {
+    "LABEL": "tech stack",
+    "FRONT_FAV_STACK": "Frontend favourite stack",
+    "BACK_FAV_STACK": "Backend favorite stack"
+  },
+  "EXPERIENCE": {
+    "LABEL": "experience",
+    "PRESENT": "present",
+    "PERIOD": "Period",
+    "DESCRIPTION": "Description",
+    "TECHNOLOGIES": "Technologies",
+    "VIEW_DETAIL": "View detail"
+  },
+  "PROJECTS": {
+    "LABEL": "projects",
+    "STATUS_ACTIVE": "in production",
+    "STATUS_WIP": "in progress",
+    "GITHUB": "GitHub →",
+    "SWAGGER": "Swagger UI →"
+  },
+  "CONTACT": {
+    "LABEL": "contact",
+    "TITLE_LINE1": "Shall we",
+    "TITLE_ACCENT": "work together?",
+    "SUBTITLE": "Open to freelance projects, job opportunities and interesting collaborations.",
+    "NAME": "Adrián Carneiro Diz // cardizaDEV",
+    "EMAIL": "adriancarndi@gmail.com // cardizaDEV@gmail.com",
+    "MESSAGE": "tell me how I can help you...",
+    "SEND": "Send message →",
+    "SUCCESS": "Message sent! I'll get back to you soon.",
+    "ERROR": "Something went wrong. Please try again.",
+    "SENDING": "Sending..."
+  },
+  "FOOTER": {
+    "MADE_WITH": "Built with Spring Boot & Angular · 2026"
+  }
+}

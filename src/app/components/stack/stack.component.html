@@ -1,0 +1,47 @@
+<section id="stack" class="mb-18 px-16">
+    <p
+        class="font-mono text-[14px] tracking-[0.14em] uppercase text-subtle mb-6 flex items-center gap-3 after:flex-1 after:h-px after:bg-border">
+        {{ 'STACK.LABEL' | translate }}
+    </p>
+
+    <div class="flex flex-col items-center justify-center md:flex-row gap-4">
+        <div class="flex flex-col items-center justify-center border border-border rounded-xl p-6">
+            <p class="text-base leading-7 text-muted">{{ 'STACK.FRONT_FAV_STACK_LABEL' | translate }}</p>
+            <p class="font-serif text-2xl leading-snug tracking-tight text-content mb-4">{{ 'STACK.FRONT_FAV_STACK' |
+                translate }}</p>
+            <svg class="w-16 h-16 mb-2">
+                <use [attr.href]="'#' + 'Angular'"></use>
+            </svg>
+        </div>
+        <div class="flex flex-col items-center justify-center border border-border rounded-xl p-6">
+            <p class="text-base leading-7 text-muted">{{ 'STACK.BACK_FAV_STACK_LABEL' | translate }}</p>
+            <p class="font-serif text-2xl leading-snug tracking-tight text-content mb-4">{{ 'STACK.BACK_FAV_STACK' |
+                translate }}</p>
+            <svg class="w-14 h-14 mb-2">
+                <use [attr.href]="'#' + 'Spring Boot'"></use>
+            </svg>
+        </div>
+    </div>
+
+    <div class="w-full mt-6">
+        <div class="flex flex-wrap gap-2 mb-4">
+            <button (click)="selectCategory(null)"
+                class="font-mono text-[11px] font-medium px-3 py-1 rounded-full border transition-colors cursor-pointer"
+                [class.border-border]="selectedCategory !== null" [class.text-muted]="selectedCategory !== null"
+                [class.border-content]="selectedCategory === null" [class.text-content]="selectedCategory === null">
+                All
+            </button>
+            <button *ngFor="let cat of categories" (click)="selectCategory(cat)"
+                class="font-mono text-[11px] font-medium px-3 py-1 rounded-full border transition-colors cursor-pointer"
+                [style.background-color]="selectedCategory?.id === cat.id ? cat.colorBg : 'transparent'"
+                [style.color]="selectedCategory?.id === cat.id ? cat.colorText : ''"
+                [style.border-color]="selectedCategory?.id === cat.id ? cat.colorBorder : ''">
+                {{ cat.name }}
+            </button>
+        </div>
+
+        <div class="hidden sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2">
+            <app-tech-pill *ngFor="let tech of filteredTechnologies" [tech]="tech" />
+        </div>
+    </div>
+</section>

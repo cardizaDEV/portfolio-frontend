@@ -1,0 +1,14 @@
+<div [class]="compact ? 'flex items-start justify-between px-3 py-2 rounded-xl border border-border-soft bg-transparent gap-2 transition-colors hover:border-border' : 'flex items-start justify-between w-full px-3 py-2 rounded-xl border border-border-soft bg-transparent gap-2 transition-colors hover:border-border'"
+    [class.cursor-pointer]="tech.url" (click)="openUrl()">
+    <span class="font-mono text-[11px] font-medium text-content">
+        {{ tech.name }}
+    </span>
+    <div class="flex flex-wrap gap-1 justify-end shrink-0">
+        <span *ngFor="let cat of tech.categories"
+            class="font-mono text-[9px] font-medium px-2 py-0.5 rounded-full whitespace-nowrap"
+            [style.background-color]="cat.colorBg" [style.color]="cat.colorText"
+            [style.border]="'0.5px solid ' + cat.colorBorder">
+            {{ cat.name }}
+        </span>
+    </div>
+</div>

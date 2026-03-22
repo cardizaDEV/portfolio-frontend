@@ -1,0 +1,65 @@
+{
+  "NAV": {
+    "ABOUT": "sobre mí",
+    "STACK": "stack",
+    "EXPERIENCE": "experiencia",
+    "PROJECTS": "proyectos",
+    "CONTACT": "contacto",
+    "CV": "cv.pdf ↓"
+  },
+  "HERO": {
+    "EYEBROW": "// Desarrollador Fullstack · Spring Boot & Angular",
+    "TITLE_PRE": "Construyendo tecnología que de verdad",
+    "TITLE_ACCENT": "funciona.",
+    "TITLE_POST": "",
+    "DESC": "Desarrollador fullstack con foco en sistemas limpios y escalables. Me importa tanto el diseño de una buena API como la interfaz que la consume.",
+    "BTN_PROJECTS": "Ver proyectos",
+    "BTN_SWAGGER": "Swagger UI →"
+  },
+  "ABOUT": {
+    "LABEL": "sobre mí",
+    "HEADLINE": "Programador apasionado por crear soluciones útiles y bien estructuradas.",
+    "DESC": "Tengo experiencia desarrollando aplicaciones backend con Spring Boot, frontend con Angular y móviles con Flutter, participando en múltiples fases del ciclo de vida del desarrollo. Me adapto bien a nuevos entornos y tecnologías, y valoro especialmente la calidad del código, la mantenibilidad y el aprendizaje continuo. Además, tengo un gran interés en la inteligencia artificial y disfruto explorando cómo puede aplicarse para resolver problemas complejos del mundo real. Fuera del teclado, me encantan los animales, los videojuegos y las series.",
+    "MAIN_LANG": "Java & TypeScript",
+    "FAV_FRAMEWORK": "Spring Boot & Angular",
+    "YEARS": "años de\nexperiencia"
+  },
+  "STACK": {
+    "LABEL": "stack técnico",
+    "FRONT_FAV_STACK_LABEL": "Framework favorito para frontend",
+    "BACK_FAV_STACK_LABEL": "Framework favorito para backend",
+    "FRONT_FAV_STACK": "Angular",
+    "BACK_FAV_STACK": "Spring Boot"
+  },
+  "EXPERIENCE": {
+    "LABEL": "experiencia",
+    "PRESENT": "presente",
+    "PERIOD": "Período",
+    "DESCRIPTION": "Descripción",
+    "TECHNOLOGIES": "Tecnologías",
+    "VIEW_DETAIL": "Ampliar detalle"
+  },
+  "PROJECTS": {
+    "LABEL": "proyectos",
+    "STATUS_ACTIVE": "en producción",
+    "STATUS_WIP": "en desarrollo",
+    "GITHUB": "GitHub →",
+    "SWAGGER": "Swagger UI →"
+  },
+  "CONTACT": {
+    "LABEL": "contacto",
+    "TITLE_LINE1": "¿Trabajamos",
+    "TITLE_ACCENT": "juntos?",
+    "SUBTITLE": "Abierto a proyectos freelance, oportunidades de empleo y colaboraciones interesantes.",
+    "NAME": "Adrián Carneiro Diz // cardizaDEV",
+    "EMAIL": "adriancarndi@gmail.com // cardizaDEV@gmail.com",
+    "MESSAGE": "cuéntame en qué puedo ayudarte...",
+    "SEND": "Enviar mensaje →",
+    "SUCCESS": "¡Mensaje enviado! Me pondré en contacto contigo pronto.",
+    "ERROR": "Algo salió mal. Inténtalo de nuevo.",
+    "SENDING": "Enviando..."
+  },
+  "FOOTER": {
+    "MADE_WITH": "Hecho con Spring Boot & Angular · 2026"
+  }
+}

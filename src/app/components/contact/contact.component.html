@@ -1,0 +1,62 @@
+<section id="contact" class="mb-18 px-16">
+    <p
+        class="font-mono text-[14px] tracking-[0.14em] uppercase text-subtle mb-8 flex items-center gap-3 after:flex-1 after:h-px after:bg-border">
+        {{ 'CONTACT.LABEL' | translate }}
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-8 border border-border rounded-xl p-6">
+
+        <div>
+            <h2 class="font-serif text-3xl text-content leading-tight tracking-tight mb-2">
+                {{ 'CONTACT.TITLE_LINE1' | translate }}
+                <em class="italic text-primary">{{ 'CONTACT.TITLE_ACCENT' | translate }}</em>
+            </h2>
+            <p class="text-base text-muted leading-7 mb-6">{{ 'CONTACT.SUBTITLE' | translate }}</p>
+
+            <div class="flex gap-2 flex-wrap">
+                <button (click)="openUrl(github)"
+                    class="font-mono text-base px-3 py-1.5 border border-border rounded-lg text-muted hover:border-border-soft hover:text-content transition-colors cursor-pointer">
+                    GitHub
+                </button>
+                <button (click)="openUrl(linkedin)"
+                    class="font-mono text-base px-3 py-1.5 border border-border rounded-lg text-muted hover:border-border-soft hover:text-content transition-colors cursor-pointer">
+                    LinkedIn
+                </button>
+                <button (click)="openUrl('mailto:' + emailAddress)"
+                    class="font-mono text-base px-3 py-1.5 border border-border rounded-lg text-muted hover:border-border-soft hover:text-content transition-colors cursor-pointer">
+                    Email
+                </button>
+            </div>
+        </div>
+
+        <div class="flex flex-col gap-2 min-w-64 md:min-w-72">
+            <div *ngIf="sent"
+                class="font-mono text-base text-center py-3 rounded-lg bg-primary-light text-primary-dark border border-primary-border">
+                {{ 'CONTACT.SUCCESS' | translate }}
+            </div>
+
+            <ng-container *ngIf="!sent">
+                <input [(ngModel)]="name"
+                    class="font-sans text-base px-3 py-2 rounded-lg border border-border bg-surface-2 text-content placeholder:text-subtle outline-none focus:border-border-soft transition-colors"
+                    [placeholder]="'CONTACT.NAME' | translate" type="text" />
+                <input [(ngModel)]="email"
+                    class="font-sans text-base px-3 py-2 rounded-lg border border-border bg-surface-2 text-content placeholder:text-subtle outline-none focus:border-border-soft transition-colors"
+                    [placeholder]="'CONTACT.EMAIL' | translate" type="email" />
+                <textarea [(ngModel)]="message"
+                    class="font-sans text-base px-3 py-2 rounded-lg border border-border bg-surface-2 text-content placeholder:text-subtle outline-none focus:border-border-soft transition-colors resize-none h-24"
+                    [placeholder]="'CONTACT.MESSAGE' | translate">
+        </textarea>
+
+                <div *ngIf="error" class="font-mono text-[10px] text-center text-red-400">
+                    {{ 'CONTACT.ERROR' | translate }}
+                </div>
+
+                <button (click)="send()" [disabled]="sending || !name || !email || !message"
+                    class="font-sans text-base font-medium py-2 rounded-lg bg-primary text-primary-dark transition-opacity cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed">
+                    {{ sending ? ('CONTACT.SENDING' | translate) : ('CONTACT.SEND' | translate) }}
+                </button>
+            </ng-container>
+        </div>
+
+    </div>
+</section>

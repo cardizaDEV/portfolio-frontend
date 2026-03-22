@@ -1,0 +1,53 @@
+<nav
+    class="flex items-center justify-between mx-8 px-4 py-2.5 border border-border rounded-xl bg-surface-2/80 backdrop-blur-md mb-12 sticky top-3 z-10">
+
+    <span class="font-mono text-base font-medium tracking-tight text-content">
+        cardiza<span class="text-primary">.dev</span>
+    </span>
+
+    <ul class="hidden md:flex gap-6 list-none">
+        <li *ngFor="let link of navLinks">
+            <a (click)="scrollTo(link.id)"
+                class="text-[11px] text-muted uppercase tracking-widest font-medium cursor-pointer hover:text-content transition-colors">
+                {{ link.key | translate }}
+            </a>
+        </li>
+    </ul>
+
+    <div class="flex items-center gap-2">
+
+        <div
+            class="flex items-center border border-border rounded-lg overflow-hidden text-[11px] font-mono font-medium">
+            <button (click)="setLang('es')" [class]="currentLang === 'es'
+                ? 'px-2.5 py-1 bg-primary text-primary-dark transition-colors'
+                : 'px-2.5 py-1 text-muted hover:text-content transition-colors'">
+                ES
+            </button>
+            <button (click)="setLang('en')" [class]="currentLang === 'en'
+                ? 'px-2.5 py-1 bg-primary text-primary-dark transition-colors'
+                : 'px-2.5 py-1 text-muted hover:text-content transition-colors'">
+                EN
+            </button>
+        </div>
+
+        <button (click)="downloadCv()"
+            class="font-mono text-[11px] font-medium px-3 py-1 border border-border rounded-lg text-muted hover:border-primary-border hover:text-primary cursor-pointer transition-colors">
+            {{ 'NAV.CV' | translate }}
+        </button>
+
+        <button class="md:hidden p-1 text-muted" (click)="toggleMenu()">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                    [attr.d]="menuOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16'" />
+            </svg>
+        </button>
+    </div>
+</nav>
+
+<div *ngIf="menuOpen"
+    class="md:hidden fixed inset-x-3 top-16 z-20 bg-surface-2 border border-border rounded-xl shadow-lg p-4 flex flex-col gap-1">
+    <a *ngFor="let link of navLinks" (click)="scrollTo(link.id)"
+        class="text-base text-muted uppercase tracking-widest font-medium cursor-pointer py-2 border-b border-border-soft last:border-0 hover:text-content transition-colors">
+        {{ link.key | translate }}
+    </a>
+</div>
