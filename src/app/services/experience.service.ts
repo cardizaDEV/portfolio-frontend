@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { shareReplay, startWith, switchMap, tap } from 'rxjs/operators';
-import { environment } from '../../enviroments/enviroment';
+import { environment } from '../../environments/environment';
 import { Experience } from '../models/experience.model';
 import { TranslateService } from '@ngx-translate/core';
 
