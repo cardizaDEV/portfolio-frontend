@@ -27,7 +27,10 @@ jobs:
           npm version $VERSION --no-git-tag-version
 
       - name: Generate version file
-        run: echo "export const VERSION = '${{ github.run_number }}-${GITHUB_SHA::7}';" > src/environments/version.ts
+        run: |
+          mkdir -p frontend/src/environments
+          SHORT_SHA=${GITHUB_SHA::7}
+          echo "export const VERSION = '${{ github.run_number }}-${SHORT_SHA}';" > frontend/src/environments/version.ts
 
       - name: Build (develop)
         if: github.ref == 'refs/heads/develop'
