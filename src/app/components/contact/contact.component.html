@@ -22,10 +22,6 @@
                     class="font-mono text-base px-3 py-1.5 border border-border rounded-lg text-muted hover:border-border-soft hover:text-content transition-colors cursor-pointer">
                     LinkedIn
                 </button>
-                <button (click)="openUrl('mailto:' + emailAddress)"
-                    class="font-mono text-base px-3 py-1.5 border border-border rounded-lg text-muted hover:border-border-soft hover:text-content transition-colors cursor-pointer">
-                    Email
-                </button>
             </div>
         </div>
 
@@ -38,10 +34,10 @@
             <ng-container *ngIf="!sent">
                 <input [(ngModel)]="name"
                     class="font-sans text-base px-3 py-2 rounded-lg border border-border bg-surface-2 text-content placeholder:text-subtle outline-none focus:border-border-soft transition-colors"
-                    [placeholder]="'CONTACT.NAME' | translate" type="text" />
+                    placeholder="John Doe" type="text" />
                 <input [(ngModel)]="email"
                     class="font-sans text-base px-3 py-2 rounded-lg border border-border bg-surface-2 text-content placeholder:text-subtle outline-none focus:border-border-soft transition-colors"
-                    [placeholder]="'CONTACT.EMAIL' | translate" type="email" />
+                    placeholder="hello@example.com" type="email" />
                 <textarea [(ngModel)]="message"
                     class="font-sans text-base px-3 py-2 rounded-lg border border-border bg-surface-2 text-content placeholder:text-subtle outline-none focus:border-border-soft transition-colors resize-none h-24"
                     [placeholder]="'CONTACT.MESSAGE' | translate">
