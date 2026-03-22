@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://portfolio-backend-8sie.onrender.com',
+  apiUrl: 'https://api.cardiza.dev',
 };
