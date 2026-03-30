@@ -28,6 +28,8 @@ export class HeroComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.technologyService.technologies$.subscribe((data) => {
       this.technologies = [...data, ...data];
+      this.offset = 0;
+      clearInterval(this.interval);
       setTimeout(() => this.startScroll(), 0);
     });
   }
